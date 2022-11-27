@@ -30,7 +30,7 @@ export default function ModalTaskDetail(props: Props) {
                     </div>
                     <IoCloseSharp className='text-xl text-gray-600 cursor-pointer hover:text-black' onClick={() => props.setIsShowModalTaskDetail(false)} />
                 </div>
-                <div className='w-full h-[140px] bg-green-400 rounded-t-xl pt-[25px] px-[15px] pb-[15px]'>
+                <div className='w-full h-[140px] bg-green-300 rounded-t-xl pt-[25px] px-[15px] pb-[15px]'>
                     <p className='w-[400px] text-[18px] break-words line-clamp-1 font-bold mb-2'>Monday</p>
                     <p className='break-words line-clamp-2'>A word that refers to a lung disease contracted from the inhalation of very fine silica particles.</p>
                     <div className='flex justify-end'>
