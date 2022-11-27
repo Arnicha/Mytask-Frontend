@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { FaDizzy, FaRunning, FaSearch, FaTasks, FaRegWindowMinimize, FaRegFrown } from 'react-icons/fa'
+import { MdTaskAlt } from 'react-icons/md'
+import { RiEmotionSadLine } from 'react-icons/ri'
 import ModalCreateNewTask from '../ModalCreateNewTask/ModalCreateNewTask'
 import ModalTaskDetail from '../ModalTaskDetail/ModalTaskDetail'
 import ModalUpdateTask from '../ModalUpdateTask/ModalUpdateTask'
@@ -24,23 +27,53 @@ export default function MyTasks() {
           </div>
         </div>
       </div>
-      <div className='w-full h-full flex justify-center py-6'>
-        <div className='w-[1080px] h-full'>
-          <div className='flex justify-between items-center'>
-            <p className='text-xl font-semibold'>To Day</p>
-            <div className='flex justify-center items-center' onClick={() => setIsShowModalCreateNewTask(true)}>
-              <span className='text-2xl font-medium mr-2 hover:cursor-pointer'>+</span>
-              <span className='text-lg font-semibold hover:cursor-pointer'>Create New Task</span>
+      <div className='w-full h-full flex justify-start py-6 px-20'>
+        <div className='mr-16'>
+          <div className='w-[300px] h-[38px] flex justify-center items-center bg-blue-500 rounded-3xl drop-shadow-md mb-5 hover:cursor-pointer' onClick={() => setIsShowModalCreateNewTask(true)}>
+            <span className='text-2xl text-white font-medium mr-2'>+</span>
+            <span className='text-lg text-white font-semibold'>Create New Task</span>
+          </div>
+          <div className='w-[300px] h-[400px] bg-white drop-shadow-md rounded-md'>
+            <div className='w-full flex justify-center items-center py-4'>
+              <div className='w-[265px] h-[38px] flex items-center border-[1px] border-blue-200 rounded-3xl bg-blue-50 p-3'>
+                <input type="text" className='w-full outline-none bg-blue-50 pr-2' placeholder='Search your topic' />
+                <FaSearch />
+              </div>
+            </div>
+            <div className='w-full flex justify-start items-center text-white font-medium bg-blue-500 pl-4 py-[5px] cursor-pointer'>
+              <FaTasks className='text-[22px] mr-4' />
+              <p className='text-[17px]'>All Activity</p>
+            </div>
+            <div className='w-full flex justify-start items-center text-black font-medium  pl-4 py-[5px] hover:bg-gray-100 cursor-pointer'>
+              <FaRunning className='text-[22px] mr-4' />
+              <p className='text-[17px]'>In Progress</p>
+            </div>
+            <div className='w-full flex justify-start items-center text-black font-medium  pl-4 py-[5px] hover:bg-gray-100 cursor-pointer'>
+              <FaRegWindowMinimize className='text-[22px] mr-4' />
+              <p className='text-[17px]'>No Progress</p>
+            </div>
+            <div className='w-full flex justify-start items-center text-black font-medium  pl-4 py-[5px] hover:bg-gray-100 cursor-pointer'>
+              <MdTaskAlt className='text-[22px] mr-4' />
+              <p className='text-[17px]'>Tasks Completed</p>
+            </div>
+            <div className='w-full flex justify-start items-center text-black font-medium  pl-4 py-[5px] hover:bg-gray-100 cursor-pointer'>
+              <FaRegFrown className='text-[22px] mr-4' />
+              <p className='text-[17px]'>Tasks Failed</p>
             </div>
           </div>
+        </div>
+        <div className='w-[1080px] h-full'>
+          <div className='flex justify-start items-center'>
+            <p className='text-xl font-semibold'>To Day</p>
+          </div>
           <div className='w-full h-full grid grid-cols-5 gap-5 py-3'>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
           </div>
         </div>
       </div>
-      {isShowModalCreateNewTask && <ModalCreateNewTask setIsShowModalCreateNewTask={setIsShowModalCreateNewTask}/>}
-      {isShowModalUpdateTask && <ModalUpdateTask setIsShowModalUpdateTask={setIsShowModalUpdateTask} setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>}
-      {isShowMadalTaskDetail && <ModalTaskDetail setIsShowModalTaskDetail={setIsShowMadalTaskDetail} setIsShowModalUpdateTask={setIsShowModalUpdateTask}/>}
+      {isShowModalCreateNewTask && <ModalCreateNewTask setIsShowModalCreateNewTask={setIsShowModalCreateNewTask} />}
+      {isShowModalUpdateTask && <ModalUpdateTask setIsShowModalUpdateTask={setIsShowModalUpdateTask} setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />}
+      {isShowMadalTaskDetail && <ModalTaskDetail setIsShowModalTaskDetail={setIsShowMadalTaskDetail} setIsShowModalUpdateTask={setIsShowModalUpdateTask} />}
     </div>
   )
 }
