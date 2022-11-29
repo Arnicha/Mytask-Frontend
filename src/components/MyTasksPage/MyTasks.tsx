@@ -28,7 +28,7 @@ export default function MyTasks() {
         </div>
       </div>
       <div className='w-full h-full flex justify-start py-6 px-20'>
-        <div className='mr-16'>
+        <div className='mr-16 pt-5'>
           <div className='w-[300px] h-[38px] flex justify-center items-center bg-blue-500 rounded-3xl drop-shadow-md mb-5 hover:cursor-pointer' onClick={() => setIsShowModalCreateNewTask(true)}>
             <span className='text-2xl text-white font-medium mr-2'>+</span>
             <span className='text-lg text-white font-semibold'>Create New Task</span>
@@ -67,6 +67,12 @@ export default function MyTasks() {
             <p className='text-xl font-semibold'>To Day</p>
           </div>
           <div className='w-full h-full grid grid-cols-5 gap-5 py-3'>
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
             <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
           </div>
         </div>
