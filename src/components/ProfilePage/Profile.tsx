@@ -39,7 +39,13 @@ export default function Profile() {
         <div className='w-[1080px] h-full'>
           <p className='text-gray-600 font-medium'>SHARE</p>
           <div className='w-full h-full grid grid-cols-5 gap-5 py-3'>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
+            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
           </div>
         </div>
       </div>
