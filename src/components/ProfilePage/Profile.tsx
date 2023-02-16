@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { TaskResponse } from '../../models/tasks/TaskResponse'
+import { useGetTasksByUserIdQuery } from '../../service/tasks/TaskApi'
 import Task from '../MyTasksPage/Task'
 
 export default function Profile() {
   const [isShowMadalTaskDetail, setIsShowMadalTaskDetail] = useState<boolean>(false)
+  const { data, error, isLoading } = useGetTasksByUserIdQuery(1)
   return (
     <div className='w-full h-full'>
       <div className='w-full h-[250px] flex justify-center bg-white'>
@@ -39,13 +42,11 @@ export default function Profile() {
         <div className='w-[1080px] h-full'>
           <p className='text-gray-600 font-medium'>SHARE</p>
           <div className='w-full h-full grid grid-cols-5 gap-5 py-3'>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail}/>
+            {data && data.map((task: TaskResponse) => {
+              return (
+                <Task key={task.id} data={task} setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+              )
+            })}
           </div>
         </div>
       </div>

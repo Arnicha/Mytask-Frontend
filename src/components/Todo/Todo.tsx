@@ -6,6 +6,7 @@ interface Props {
 }
 
 export default function Todo(props: Props) {
+  
     return (
         <div className='flex justify-between'>
             <div className='flex justify-start items-center'>

@@ -45,7 +45,7 @@ export default function ModalTaskDetail(props: Props) {
                             <input type="text" className='w-full border-b-[1px] outline-none border-gray-700 px-2' placeholder='Enter new todo' />
                         </div>
                         <div className='h-[470px] overflow-y-auto pr-3'>
-                            <Todo />
+                            <Todo textToda='jjjj'/>
                         </div>
                     </div>
                 </div>

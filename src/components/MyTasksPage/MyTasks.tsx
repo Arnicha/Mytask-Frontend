@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { FaDizzy, FaRunning, FaSearch, FaTasks, FaRegWindowMinimize, FaRegFrown } from 'react-icons/fa'
 import { MdTaskAlt } from 'react-icons/md'
 import { RiEmotionSadLine } from 'react-icons/ri'
+import { TaskResponse } from '../../models/tasks/TaskResponse'
+import { useGetTasksByUserIdQuery } from '../../service/tasks/TaskApi'
 import ModalCreateNewTask from '../ModalCreateNewTask/ModalCreateNewTask'
 import ModalTaskDetail from '../ModalTaskDetail/ModalTaskDetail'
 import ModalUpdateTask from '../ModalUpdateTask/ModalUpdateTask'
@@ -11,6 +13,9 @@ export default function MyTasks() {
   const [isShowModalCreateNewTask, setIsShowModalCreateNewTask] = useState<boolean>(false)
   const [isShowModalUpdateTask, setIsShowModalUpdateTask] = useState<boolean>(false)
   const [isShowMadalTaskDetail, setIsShowMadalTaskDetail] = useState<boolean>(false)
+
+  const { data, error, isLoading } = useGetTasksByUserIdQuery(1)
+
   return (
     <div className='w-full h-full'>
       <div className='w-full h-[160px] flex justify-center bg-white'>
@@ -67,13 +72,11 @@ export default function MyTasks() {
             <p className='text-xl font-semibold'>To Day</p>
           </div>
           <div className='w-full h-full grid grid-cols-5 gap-5 py-3'>
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
-            <Task setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+            {data && data.map((task: TaskResponse) => {
+              return (
+                <Task key={task.id} data={task} setIsShowModalTaskDetail={setIsShowMadalTaskDetail} />
+              )
+            })}
           </div>
         </div>
       </div>
